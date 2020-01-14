@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.0'
+ruby '2.3.3'
 
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.4.1'
 gem 'bootstrap-select-rails'
 gem 'slim-rails'
 gem 'simple_form'
