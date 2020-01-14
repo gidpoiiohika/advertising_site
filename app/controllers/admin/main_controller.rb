@@ -1,3 +1,3 @@
 class Admin::MainController < Admin::BaseController
-  layout "admin"
+  skip_before_action :set_active_main_menu_item, except: :destroy
 end

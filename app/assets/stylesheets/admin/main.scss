@@ -1,3 +1,22 @@
 .dropdown-menu {
   left: -78px !important;
 }
+
+.nav-item.active a {
+  color: aliceblue;
+  padding: 10px;
+  background-color: darkgrey;
+}
+
+.nav-item.active a:hover {
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  text-decoration: none;
+  color: rgba(0,0,0,.5);
+}
+
+.nav-item a {
+  color: rgba(0,0,0,.5);
+}

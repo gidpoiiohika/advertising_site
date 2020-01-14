@@ -7,9 +7,8 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    .container-fluid
-      = render 'admin/shared/main_menu'
+    = render 'admin/shared/main_menu'
     .container
       .row
         .col-12.col-sm-12.col-md-12.col-lg-12.col-xl-12
-           = yield
+          = yield

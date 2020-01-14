@@ -4,16 +4,21 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.nav-link href="#" 
-          | Home
-          span.sr-only (current)
-      li.nav-item
-        a.nav-link href="#"  Link
-    ul.navbar-nav.my-4.my-lg-0
+      - @main_menu.each do |advert, options|
+        / li.nav-item.active
+        /   a.nav-link href="#" 
+        /     | Home
+        /     span.sr-only (current)
+        li.nav-item class=(options[:active] ? 'active' : '')
+          = link_to options[:path] do
+            = options[:name]
+            - if options[:active]
+              span.sr-only (current)
+    ul.navbar-nav
       li.nav-item.dropdown
         a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"  
           | Dropdown
+
         .dropdown-menu aria-labelledby="navbarDropdown" 
           a.dropdown-item href="#"  Action
           a.dropdown-item href="#"  Another action
