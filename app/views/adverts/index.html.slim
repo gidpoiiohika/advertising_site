@@ -1,0 +1,18 @@
+.album.py-5.bg-light
+  .container
+    .row
+      - @adverts.each_with_index do |advert, index| 
+        .col-md-3
+          .card.mb-3.box-shadow
+            / = image_tag('pc2.jpg', height: '100%', width: '100%' )
+            = image_tag(advert.image.thumb.url, alt: 'Image', class: "d-block w-100", target: '_blank') if advert.image?
+            div.card-body
+              p.card-text.advert-price = advert.price
+              p.card-text.advert-name = advert.name
+              div.btn-advert-index-show
+                div.btn-group
+                  button.btn.btn-sm.btn-outline-secondary type="button"
+                    = link_to 'Посмотреть', advert_path(advert)
+                    = link_to "copy", copy_advert_path(advert)
+                  / button.btn.btn-sm.btn-outline-secondary type="button"  Edit
+                / small class="text-muted" = advert.created_at.strftime("%d-%m-%Y")

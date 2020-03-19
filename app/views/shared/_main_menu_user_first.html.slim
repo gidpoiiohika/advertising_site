@@ -1,0 +1,16 @@
+nav.navbar.navbar-light.bg-light.shadow-sm.pg_main_menu.fixed-top
+  .container.d-flex.justify-content-between
+    / a.navbar-brand.d-flex.align-items-center href="#" 
+    /   strong.m_m_add Добавить объявление
+    = link_to 'Добавить объявление', new_advert_path, class: 'm_m_add navbar-brand d-flex align-items-center'
+    form.form-inline.cursor-main_menu_profil
+      - if user_signed_in?
+        .dropdown
+          #dropdownMenuButton.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+            | Мой профиль
+          .dropdown-menu aria-labelledby="dropdownMenuButton" 
+            = link_to "Посмотреть профиль", destroy_user_session_path, method: :delete, class: "dropdown-item" 
+            = link_to "Выход", destroy_user_session_path, method: :delete, class: "dropdown-item"
+      - else
+          = link_to "Вход", new_user_session_path, class: "exit_user_maun_firs"
+          = link_to "Регистрация", new_user_registration_path, class: "registration_user_maun_firs"

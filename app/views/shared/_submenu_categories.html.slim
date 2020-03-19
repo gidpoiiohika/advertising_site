@@ -1,0 +1,4 @@
+- categories.each do |category|
+  .col-md-3.style-col-img-category-name
+    = image_tag(category.image.url, alt: 'Image', class: "d-block w-100", target: '_blank') if category.image?
+    = link_to category.name, category, class: "" 
