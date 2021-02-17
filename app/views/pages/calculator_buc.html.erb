@@ -1,0 +1,29 @@
+
+<div class="b-titlebar">
+  <div class="container layout">
+    <!-- Bread Crumbs -->
+    <ul class="crumbs">
+      <li>You are here:</li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Calculators", "#" %></li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="container layout">
+    <h1 class="centered semibold uppercase">Link Budget Calculator</h1>
+    <h3 class="lined"></h3>
+    <p style="text-align: justify;">
+      Link budget calculator can be used for calculating:<br/>
+      ► required BUC power for covering exact distance;<br/>
+      ► reachable distance depending on exact BUC power;<br/>
+      ► and at the same time you may calculate directed parabolic antenna gain at receiving and transmitting sides<br/>
+      <b><%=  link_to "Video instructions about link budget calculator watch below", "#lbc_video" %></b>
+    </p>
+    <%= render "pages/calcs/calculator_buc"%>
+    <center>  
+      <iframe id="lbc_video" width="720" height="440" src="https://www.youtube.com/embed/jCJ1nAJdnng" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
+    <br/>
+  </div>
+</div>

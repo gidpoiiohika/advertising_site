@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :records
   devise_for :users
   
   root 'adverts#index'
+
+  get 'pages/calculator_buc'
+
+  get 'pages/calculators'
 
   devise_scope :user do
     authenticated  :user do
@@ -15,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :adverts
   resources :categories
+  resources :users
 
   namespace :admin do
     root to: 'main#index'

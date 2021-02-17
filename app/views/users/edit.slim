@@ -1,0 +1,21 @@
+ul.nav.nav-tabs
+  /! Первая вкладка (активная)
+  li.nav-item
+    a.nav-link.active data-toggle="tab" href="#user_tab"  Профиль
+  /! Вторая вкладка
+  li.nav-item
+    a.nav-link data-toggle="tab" href="#activ_adverts"  Активные обьявления
+  li.nav-item
+    a.nav-link data-toggle="tab" href="#inactiv_adverts"  Неактивные обьявления
+
+
+/! Блоки с контентом
+.tab-content
+  /! Первый блок (он отображается по умолчанию, т.к. имеет классы show и active)
+  #user_tab.tab-pane.fade.show.active 
+    = render partial: 'users/navigation_tabs/user_tab', locals: { record: @user }
+  /! Второй блок
+  #activ_adverts.tab-pane.fade 
+    = render partial: 'users/navigation_tabs/activ_adverts', locals: { record: @user }
+  #inactiv_adverts.tab-pane.fade 
+    = render partial: 'users/navigation_tabs/inactive_adverts', locals: { record: @user }

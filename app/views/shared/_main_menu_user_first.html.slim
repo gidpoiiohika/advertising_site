@@ -9,7 +9,7 @@ nav.navbar.navbar-light.bg-light.shadow-sm.pg_main_menu.fixed-top
           #dropdownMenuButton.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
             | Мой профиль
           .dropdown-menu aria-labelledby="dropdownMenuButton" 
-            = link_to "Посмотреть профиль", destroy_user_session_path, method: :delete, class: "dropdown-item" 
+            = link_to "Посмотреть профиль", edit_user_path(current_user.id), class: "dropdown-item" 
             = link_to "Выход", destroy_user_session_path, method: :delete, class: "dropdown-item"
       - else
           = link_to "Вход", new_user_session_path, class: "exit_user_maun_firs"

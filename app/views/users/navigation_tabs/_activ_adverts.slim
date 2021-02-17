@@ -1,0 +1,18 @@
+h3 Объявления
+
+table.table.table-striped
+  thead
+    tr
+      th scope="col"  #
+      th scope="col"  Имя
+      th scope="col"  Описания
+      th scope="col"  Цена
+  tbody
+    - @adverts_active.each_with_index do |advert, index| 
+      - indexplusone = index + 1
+      tr
+        td = indexplusone
+        td = advert.name
+        td = advert.description
+        td = advert.price
+

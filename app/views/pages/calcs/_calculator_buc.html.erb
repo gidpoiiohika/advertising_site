@@ -1,0 +1,840 @@
+<style type="text/css">
+  .row {
+/*    display: block;*/
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    font-size: 13px
+  }
+
+  .both_borders {
+    border-right: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .calc_header {
+    background-color: #252a75;
+    /*border: 1px solid black;*/
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .radio {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .form_input_small {
+    height: 30px !important;
+  }
+
+  .l_border {
+    border-left: 1px solid;
+  }
+
+  .r_border {
+    border-right: 1px solid;
+  }
+
+  .t_border {
+    border-bottom: 1px solid;
+  }
+
+  @media only screen and (max-width: 762px) {
+    .both_borders {
+      height: 90px;
+      border-left: 1px solid;
+      border-right: 1px solid;
+    }
+    .pading-frequency {
+      padding-top: 167px;
+    }
+    .pading-gain {
+      padding-top: 74px;
+    }
+    .pading-dr {
+      padding-top: 55px;
+    }
+    .pading-gat {
+      padding-top: 35px;
+    }
+    .pading-dt {
+      padding-top: 13px;
+    }
+  }
+
+</style>
+<body>
+  <div class="container layout">
+
+    <div class="row">
+      <div class="col-md-12 l_border r_border calc_header">
+        <div class="row">
+          <p class="calc_header">Calculation parameter</p>
+          <p></p>
+        </div>
+      </div>
+      <div class="col-md-12 both_borders">
+        <div class="col-lg-3 col-md-5 col-lg-offset-5">
+          <div class="row-item control-power-distance">
+            <label class="radio">
+              <input type="radio" name="power_distance" value="1" id="power_distance_1" required>
+              Calculate reachable distance
+            </label>
+            <label class="radio">
+              <input type="radio" name="power_distance" value="2" id="power_distance_2" required>
+              Calculate required BUC power
+            </label>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 l_border r_border calc_header">
+        <div class="row">
+          <p class="calc_header"></p><p>
+        </p></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>BUC power:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="value_buc">
+              <div class="input-group-addon">W</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Reachable distance:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="result_distance">
+              <div class="input-group-addon">km</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 l_border r_border calc_header">
+        <div class="row">
+          <p class="calc_header"></p><p>
+        </p></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b> Quantity of frequency carriers:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small quantity_carrier">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Frequency carrier bandwidth:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" placeholder="36" class="form-control form_input_small carrier_bandwidth">
+              <div class="input-group-addon">MHz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>P1dB back off:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" placeholder="10" class="form-control form_input_small back_off">
+              <div class="input-group-addon">dB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Target C/N:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small CN">
+              <div class="input-group-addon">dB</div>
+            </div>
+            <strong>For Broadcast</strong><br>
+            QPSK = 12 dB<br>
+            8PSK = 15 dB<br>
+            QAM16 = 19 dB<br>
+            QAM64 = 25 dB<br>
+            QAM256 = 35 dB<br>
+            COFDM = 20 dB<br>
+            <strong>For Radio Relay Link add +10 dB margin </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders pading-frequency">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Frequency:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="frequency">
+              <div class="input-group-addon">MHz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders pading-gain">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Tx antenna Gain:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="gat">
+              <div class="input-group-addon">dB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders pading-dr">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Tx antenna Diameter:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="dt">
+              <div class="input-group-addon">m</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders pading-gat">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Rx antenna Gain:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="gar">
+              <div class="input-group-addon">dB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders pading-dt">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Rx antenna Diameter:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control form_input_small" id="dr">
+              <div class="input-group-addon">m</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders test-pading-losses">
+        <br>
+          <div class="col-lg-3 col-md-5 col-md-offset-1 col-lg-offset-3">
+          <div class="row-item">
+            <p class="form-control-static" style="font-size: 14px !important;"><b>Loss factor:</b></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+              <select id="loss">
+                <option value="2">Line of sight(LoS)</option>
+                <option value="3">city</option>
+                <option value="4">city with multi-storey building</option>
+                <option value="6">barrier build in (LoS)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 calc_header">
+        <p class="calc_header"></p><p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 both_borders t_border">
+        <div class="col-lg-4 col-md-5 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+          <div class="row-item control-power-distance">
+            <p class="form-control-static" style="font-size: 14px !important; font-weight: bold; color: green;">BUC power:&nbsp<span id="value_buc_power">0</span>&nbspW</p>
+            <p class="form-control-static" style="font-size: 14px !important; font-weight: bold; color: green;">Reachable distance:&nbsp<span id="result_distance_dplicated">0</span>&nbspkm</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <div class="form-group">
+            <div class="input-group">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Test", "#", id: 'link-to-hq' %>
+  <br>
+  <br>
+</body>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $("#link-to-hq").click(function(){
+      $.ajax({
+        type:"GET",
+        url:"/records/new",
+        dataType:"script",
+        data: {some_parameter: {  power_distance_1: $('#power_distance_1').val(),
+                                  value_buc: $('#value_buc').val(), 
+                                  result_distance: $('#result_distance').val(),
+                                  quantity_carrier: $('.quantity_carrier').val(),
+                                  carrier_bandwidth: $('.carrier_bandwidth').val(),
+                                  back_off: $('.back_off').val(),
+                                  cn: $('.CN').val(),
+                                  frequency: $('#frequency').val(),
+                                  gat: $('#gat').val(),
+                                  dt: $('#dt').val(),
+                                  gar: $('#gar').val(),
+                                  dr: $('#dr').val(),
+                                  loss: $('#loss').val(),
+                                  value_buc_power: $('#value_buc_power').text(),
+                                  result_distance_dplicated: $('#result_distance_dplicated').text()
+                                }},
+        success:function(result){
+          
+        }
+      })
+    });
+
+    var inp1 = document.getElementById("gat");
+    inp1.oninput = function () {
+      document.getElementById("dt").disabled = this.value != "";
+    };
+
+    var inp2 = document.getElementById("dt");
+    inp2.oninput = function () {
+      document.getElementById("gat").disabled = this.value != "";
+    };
+
+    var inp3 = document.getElementById("gar");
+    inp3.oninput = function () {
+      document.getElementById("dr").disabled = this.value != "";
+    };
+
+    var inp4 = document.getElementById("dr");
+    inp4.oninput = function () {
+      document.getElementById("gar").disabled = this.value != "";
+    };
+
+    var radio = $('input[name=power_distance]:checked', '.control-power-distance').val()
+    function checkradiobox(){
+      var radio = $('input[name=power_distance]:checked', '.control-power-distance').val();
+      $('#value_buc, #result_distance').attr('disabled',true);
+      if(radio == "1"){
+        $('#value_buc').attr('disabled',false);
+        $("#value_buc").focus();
+      }else if(radio == "2"){
+        $('#result_distance').attr('disabled',false);
+        $("#result_distance").focus();
+      }
+    }
+    
+    $("#power_distance_1, #power_distance_2").change(function () {
+      checkradiobox();
+    });
+  
+    checkradiobox();
+
+
+    // получаю значения поля Buc Powe
+    var value_buc = $("#value_buc").val()
+
+    
+    value_carrier_h = function() {
+      var value_carrier_bandwidth = $(".carrier_bandwidth").val()
+      var replace_bandwidth = parseFloat(value_carrier_bandwidth.replace(/,/g, '.'))
+      if (value_carrier_bandwidth == "" ) {
+        return 36
+      } else {
+        return replace_bandwidth
+      }
+    }
+
+    // получаю значения поля Back off (4)
+    value_back = function() {
+      var value_back_off = $(".back_off").val()
+      var replace_back_off = parseFloat(value_back_off.replace(/,/g, '.'))
+      if (value_back_off == "" ) {
+        return 10
+      } else {
+        return replace_back_off
+      }
+    }
+
+    distance_calculation = function() {
+      result_distance = function() {
+        var value_result_distance = $("#result_distance").val()
+
+        //replace
+        var replace_n = $("#loss").val()
+        var n = parseFloat(replace_n.replace(/,/g, '.'))
+
+        //replace
+        var replace_tcnr_number = $(".CN").val()
+        var tcnr_number = parseFloat(replace_tcnr_number.replace(/,/g, '.'))
+
+        var tcnt = Number(tcnr_number)
+
+        //replace
+        var replace_frequency = $("#frequency").val()
+        var frequency = parseFloat(replace_frequency.replace(/,/g, '.'))
+
+        var kw = 5
+        var range_calculation = value_carrier_h()*1000000
+        var fdb = 10 * Math.log10(range_calculation)
+        var pr = -174 + kw + fdb + tcnt
+
+        //replace
+        var replace_d = $("#result_distance").val()
+        var d = parseFloat(replace_d.replace(/,/g, '.'))
+
+        var a = Math.log10(d)
+        console.log(input_control_gat())
+        var pt = 10 * n * Math.log10(d) + pr - Number(input_control_gat()) - Number(input_control_gar()) + 32.44 + 20 * Math.log10(frequency)
+        return pt
+      }
+
+      // document.getElementById('value_buc').value = Pt
+      value_quantity_carrier_distance = function() {
+        //replace
+        var replace_value_quantity_carrier = $(".quantity_carrier").val()
+        var value_quantity_carrier = parseFloat(replace_value_quantity_carrier.replace(/,/g, '.'))
+
+        if (value_quantity_carrier == "1") {
+          var pt = result_distance();
+          // Расчет бэе офф в разах 
+          var bo = Number(value_back())
+          var computation_kbo = bo / 10
+          var kbo = Math.pow(10, computation_kbo); 
+          var сomputation_Pt_n_distance = pt / 10
+          var a = Math.pow(10, сomputation_Pt_n_distance);
+          var pg = a / 1000
+          var p1dB = pg * kbo
+          return  p1dB
+        } else if (value_quantity_carrier > "1") {
+          var bo = Number(value_back())
+          var computation_kbo = bo / 10
+          var kbo = Math.pow(10, computation_kbo); 
+          var pt = result_distance()
+          //replace
+          var replace_n = $(".quantity_carrier").val()
+          var n = parseFloat(replace_n.replace(/,/g, '.'))
+          var computation_n_distance = n - 1 
+          var computation_pg_distance = pt + 10 * Math.log10(n) + 5 * Math.log10(computation_n_distance)
+          var computation_pg_distance_2 = computation_pg_distance / 10 
+
+          var pg =  Math.pow(10, computation_pg_distance_2) / 1000
+          var p1dB = pg * kbo
+          return p1dB
+        }
+      }
+      if (Number(value_quantity_carrier_distance().toFixed(2) < 0.1)){
+        $('#value_buc_power').text("< 0.1")
+        document.getElementById('value_buc').value = "< 0.1"
+        
+      }
+      else{
+        document.getElementById('value_buc').value = Number(value_quantity_carrier_distance().toFixed(2))
+        $('#value_buc_power').text(Number(value_quantity_carrier_distance().toFixed(2)))
+      }
+
+      $('#result_distance_dplicated').text($('#result_distance').val())
+    }
+
+    $("body").on("change", "#result_distance", function () {
+      distance_calculation()
+    });
+
+    power_calculation = function() {
+      // получаю значения поля Quantity of carriers  (2)
+      quantity_of_carriers = function() {
+        //replace
+        var replace_value_buc = $("#value_buc").val()
+        var value_buc = parseFloat(replace_value_buc.replace(/,/g, '.'))
+        //replace
+        var replace_value_quantity_carrier = $(".quantity_carrier").val()
+        var value_quantity_carrier = parseFloat(replace_value_quantity_carrier.replace(/,/g, '.'))
+
+        // Расчет бэе офф в разах 
+        var bo = value_back()
+        var computation_Kbo = bo / 10
+        var kbo = Math.pow(10, computation_Kbo);
+        // Вычисление групповой мощности передатчика
+        var p1dB = parseFloat(value_buc)
+        var pg =  p1dB / kbo
+        // Расчет мощности на 1 несущую
+        if (value_quantity_carrier == "1") {
+          var computation_Pt_n = 1000 * pg
+          var pt = 10 * Math.log10(computation_Pt_n)
+          return pt
+        } else if (value_quantity_carrier > "1") {
+          var computation_Pt_n = 1000 * pg
+          var n = value_quantity_carrier
+          var p1 = 10 * Math.log10(computation_Pt_n) - 10 * Math.log10(n)
+          var computation_P2 = n - 1
+          var p2 = p1 - 10 * Math.log10(computation_P2)
+          var computation_Pt_n_2 = p1 + p2
+          var pt = computation_Pt_n_2 / 2
+          return pt
+        }
+      }
+      // Расчет дальности работы, по заданной мощности передатчика:
+      //replace
+      var replace_n = $("#loss").val() 
+      var n = parseFloat(replace_n.replace(/,/g, '.'))
+
+      //replace
+      var replace_tcnt = $(".CN").val()
+      var tcnt = parseFloat(replace_tcnt.replace(/,/g, '.'))
+
+      //replace
+      var replace_frequency = $("#frequency").val()
+      var frequency = parseFloat(replace_frequency.replace(/,/g, '.'))
+
+      var pt = Number(quantity_of_carriers())
+      var kw = 5
+      var range_calculation = value_carrier_h()*1000000
+      var range_calculation_computation = Number(range_calculation.toFixed(3))
+      var fdb = 10 * Math.log10(range_calculation_computation)
+      var pr_number = -174 + kw + fdb + tcnt
+      var pr = Number(pr_number.toFixed(3))
+
+      var a = Math.log10(frequency)
+      var computation_d_1 = pt - pr + Number(input_control_gat()) + Number(input_control_gar()) - 32.44 - 20 * Math.log10(frequency)
+      var computation_d_2 = 10 * n
+      var computation_d_3 = computation_d_1 / computation_d_2
+      var d = Math.pow(10, computation_d_3)
+      
+      if(Number(d.toFixed(2) > 0.1)){
+        document.getElementById('result_distance').value = Number(d.toFixed(2))
+        $('#result_distance_dplicated').text(Number(d.toFixed(2)))
+      }
+      else{
+        document.getElementById('result_distance').value = "< 0.1"
+        $('#result_distance_dplicated').text("< 0.1")
+      }
+      $('#value_buc_power').text($('#value_buc').val())
+    }
+
+    // BUC power (a)
+    $("body").on("change", "#value_buc", function () {
+      power_calculation()
+    });
+
+    // Quantity of carriers (2)
+    $("body").on("change", ".quantity_carrier", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+      
+    });
+    // Carrier bandwidth (3)
+    $("body").on("change", ".carrier_bandwidth", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+    // Back off (4)
+    $("body").on("change", ".back_off", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+    // Target C/N (5)
+    $("body").on("change", ".CN", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    // Frequency (8)
+    $("body").on("change", "#frequency", function () {
+      if ($('#dt').val()  != "") {
+        document.getElementById('gat').value = input_gat().toFixed(3)
+      }
+
+      if ($('#dr').val()  != "") {
+        document.getElementById('gar').value = input_gar().toFixed(3)
+      } 
+
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    // 6
+    $("body").on("change", "#gat", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    $("body").on("change", "#dt", function () {
+      document.getElementById('gat').value = input_gat().toFixed(3)
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    $("body").on("change", "#gar", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    $("body").on("change", "#dr", function () {
+      document.getElementById('gar').value = input_gar().toFixed(3)
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+    // 7
+    $("body").on("change", ".control-gar", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+    // Losses factor (9)
+    $("body").on("change", "#loss", function () {
+      var radio_power_distance = $('input[name=power_distance]:checked', '.control-power-distance').val()
+      if (radio_power_distance == "1") {
+        power_calculation()
+      } else if (radio_power_distance == "2") {
+        distance_calculation()
+      }
+    });
+
+    input_gat = function() {
+      var h = 0.55
+      //replace
+      var replace_dt = $('#dt').val()
+      var dt = parseFloat(replace_dt.replace(/,/g, '.'))
+      var c = 3 * 100000000
+      //replace
+      var replace_frequency = $("#frequency").val()
+      var frequency = parseFloat(replace_frequency.replace(/,/g, '.'))
+
+      // GAT
+      var computation_Gat_1 = Math.PI * dt
+      var computation_Gat_2 = frequency * 1000000
+      var computation_Gat_3 = c / computation_Gat_2
+      var computation_Gat_4 = computation_Gat_1 / computation_Gat_3
+      var computation_Gat_5 = computation_Gat_4 * computation_Gat_4
+      var computation_Gat_6 = h * computation_Gat_5
+      var gat = 10 * Math.log10(computation_Gat_6)
+      return gat
+    }
+
+    input_gar = function() {
+      var h = 0.55 
+      //replace
+      var replace_dr = $('#dr').val()
+      var dr = parseFloat(replace_dr.replace(/,/g, '.'))
+
+      var c = 3 * 100000000
+      //replace
+      var replace_frequency = $("#frequency").val()
+      var frequency = parseFloat(replace_frequency.replace(/,/g, '.'))
+      // Gar
+      var computation_Gar_1 = Math.PI * dr
+      var computation_Gar_2 = frequency * 1000000
+      var computation_Gar_3 = c / computation_Gar_2
+      var computation_Gar_4 = computation_Gar_1 / computation_Gar_3
+      var computation_Gar_5 = computation_Gar_4 * computation_Gar_4
+      var computation_Gar_6 = h * computation_Gar_5
+      var gar = 10 * Math.log10(computation_Gar_6)
+      return gar
+    }
+    // 6 
+    input_control_gat = function() {
+      if ($('#gat').val() == "") {
+        var h = 0.55
+        //replace
+        var replace_dt = $('#dt').val()
+        var dt = parseFloat(replace_dt.replace(/,/g, '.'))
+
+        var c = 3 * 100000000
+        //replace
+        var replace_frequency = $("#frequency").val()
+        var frequency = parseFloat(replace_frequency.replace(/,/g, '.'))
+
+        // GAT
+        var computation_Gat_1 = Math.PI * dt
+        var computation_Gat_2 = frequency * 1000000
+        var computation_Gat_3 = c / computation_Gat_2
+        var computation_Gat_4 = computation_Gat_1 / computation_Gat_3
+        var computation_Gat_5 = computation_Gat_4 * computation_Gat_4
+        var computation_Gat_6 = h * computation_Gat_5
+        var d = 10 * Math.log10(computation_Gat_6)
+        return d
+      } else {
+        //replace
+        var replace_a = $('#gat').val()
+        var a = parseFloat(replace_a.replace(/,/g, '.'))
+        return a
+      }
+    }
+
+    // получаю значения поля 7
+    input_control_gar = function() {
+      if ($('#gar').val() == "") {
+        // Расчет коэффициентов усиления антенны:
+        var h = 0.55 
+        //replace
+        var replace_dr = $('#dr').val()
+        var dr = parseFloat(replace_dr.replace(/,/g, '.'))
+        var c = 3 * 100000000
+        var frequency = $("#frequency").val()
+        // Gar
+        var computation_Gar_1 = Math.PI * dr
+        var computation_Gar_2 = frequency * 1000000
+        var computation_Gar_3 = c / computation_Gar_2
+        var computation_Gar_4 = computation_Gar_1 / computation_Gar_3
+        var computation_Gar_5 = computation_Gar_4 * computation_Gar_4
+        var computation_Gar_6 = h * computation_Gar_5
+        var gar = 10 * Math.log10(computation_Gar_6)
+        return gar
+      } else {
+        var replace_a = $('#gar').val()
+        var a = parseFloat(replace_a.replace(/,/g, '.'))
+        return a
+      }
+    }
+  })
+</script>

@@ -1,0 +1,7 @@
+.row
+  .col-md-12.col-sm-12.col-lg-12.col-lx-12
+    = form_for @user do |f|
+      .form_group
+        = f.text_field :email, label_as_placeholder: true, class: 'form-control'
+        = f.text_field :first_name, label_as_placeholder: true, class: 'form-control'
+        = f.text_field :last_name, label_as_placeholder: true, class: 'form-control'

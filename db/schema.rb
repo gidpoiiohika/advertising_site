@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_215109) do
+ActiveRecord::Schema.define(version: 2020_12_22_153609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_215109) do
     t.integer "category_id"
     t.string "image"
     t.json "attachments"
+    t.string "status", default: "active"
     t.index ["category_id"], name: "index_adverts_on_category_id"
     t.index ["image"], name: "index_adverts_on_image"
     t.index ["user_id"], name: "index_adverts_on_user_id"
@@ -38,6 +39,15 @@ ActiveRecord::Schema.define(version: 2020_02_20_215109) do
     t.string "image"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["name"], name: "index_categories_on_name"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "calc_type"
+    t.string "link_token"
+    t.jsonb "calc_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

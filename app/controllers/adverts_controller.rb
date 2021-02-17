@@ -4,7 +4,8 @@ class AdvertsController < ApplicationController
 
   
   def index
-    @adverts = Advert.all
+    some_parameter = params[:some_parameter]
+    @adverts = Advert.where(status: "active")
   end
 
   def show; end
